@@ -1,10 +1,88 @@
 #main-container{
-  max-width: 1200px;
-  padding: 10px 25px;
-  margin: 0px auto;
+    max-width: 1200px;
+    padding: 10px 25px;
+    margin: 0px auto;
 }
 
 .navbar .container-fluid{
-  max-width: 1200px;
-  margin: 0px auto;
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+body {
+    width:1000px;
+    margin:2em auto;
+    background-color: #cccccc;
+}
+
+#header {
+    width:1000px;
+    height:200px;
+    border:1px solid #000;
+    background:url('http://pimajand.users.cs.helsinki.fi/Reseptiarkisto/html_demo/suola.GIF');
+    text-align:center;
+    font-size:2em;
+}
+
+#right {
+    float:right;
+    width:740px;
+    border:1px solid #000;
+    background:#fdfdfd;
+    margin:10px 0;
+}
+
+#left {
+    width:250px;
+}
+
+.box {
+    border:1px solid #000;
+    background:#fdfdfd;
+    margin-top:10px;
+    padding:0.5em;
+}
+
+.column {
+    float:	left;
+    width:	33%;
+    border-width:thin; 
+    border-style:solid; 
+    text-align: center; 
+}
+
+#footer {
+    border:1px solid #000;
+    background: #888;
+    clear:both;
+    text-align:center;
+}
+
+.box ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+.box p {
+    margin:0 0 0.5em 0;
+}
+
+#content h2, #content p {
+    margin:0;
+    padding:0.5em;
+}
+
+.button {
+    border-width:thin; 
+    border-style:solid; 
+    text-align: center; 
+}
+
+.column b {
+    float:	left;
+    width:	50%;
+    border-width:thin; 
+    border-style:solid; 
+    text-align: left; 
 }

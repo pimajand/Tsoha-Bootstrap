@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Reseptihakemisto</h1>
+
+<p>
+    <a href="#" class="btn btn-success">Lisää resepti</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Nimi</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Listataan reseptit tähän -->
+        <tr>
+            <td><a href="#">Bouillabaisse</a></td>
+            <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+        </tr>
+        <tr>
+            <td><a href="#">Aurinkopuuro</a></td>
+            <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+        </tr>
+        <tr>
+            <td><a href="#">Korvapuustit</a></td>
+            <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
