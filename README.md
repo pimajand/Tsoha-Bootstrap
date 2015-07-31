@@ -18,5 +18,8 @@ Järjestelmä toteutetaan PHP-kielellä PostgreSQL-toimintaympäristössä. Web-
 http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/kirjautumissivu
 http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/reseptilista
 http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/resepti
-Muokkaussivu on vielä kesken!
 http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/muokkaussivu
+
+## tietokantayhteys toimii ja taulut on luotu
+
+http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/tietokantayhteys
