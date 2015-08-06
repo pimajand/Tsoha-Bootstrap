@@ -9,9 +9,9 @@ class ReseptiController extends BaseController {
         View::make('resepti/index.html', array('reseptit' => $reseptit));
     }
 
-    public static function show() {
+    public static function show($id) {
     // Haetaan kyseinen resepti tietokannasta
-        $resepti = Resepti::id();
+              $resepti = Resepti::find($id);
         View::make('resepti/show.html');
     }
 
