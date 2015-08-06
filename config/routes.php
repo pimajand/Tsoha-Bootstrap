@@ -1,25 +1,20 @@
 <?php
 
-$routes->get('/', function() {
-    HelloWorldController::index();
+// Reseptin lisääminen tietokantaan
+$routes->post('/resepti', function(){
+  ReseptiController::store();
+});
+// Reseptin lisäyslomakkeen näyttäminen
+$routes->get('/resepti/new', function(){
+  ReseptiController::create();
 });
 
-$routes->get('/hiekkalaatikko', function() {
-    HelloWorldController::sandbox();
-});
-
-$routes->get('/reseptilista', function() {
-    HelloWorldController::reseptilista();
-});
-
-$routes->get('/kirjautumissivu', function() {
-    HelloWorldController::kirjautuminen();
-});
-
+// Reseptien listaussivu
 $routes->get('/resepti', function() {
-    HelloWorldController::resepti();
+    ReseptiController::index();
 });
 
-$routes->get('/muokkaussivu', function() {
-    HelloWorldController::muokkaus();
+// Reseptin esittelysivu
+$routes->get('/resepti/:id', function($id) {
+    ReseptiController::show($id);
 });

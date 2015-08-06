@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<h1><a href="{{base_path}}/resepti/{{resepti.id}}">{{resepti.reseptin_nimi}}</a></h1>
+
+<form method="get" action="{{base_path}}/resepti">
+    <div class="form-group">
+        <label>Reseptin Nimi</label>
+        <input type="text" name="reseptin_nimi" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Annokset</label>
+        <input type="text" name="annokset" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Valmisteluaika</label>
+        <input type="text" name="valmisteluaika" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Kypsymisaika</label>
+        <input type="text" name="kypsymisaika" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Uunin asteet</label>
+        <input type="text" name="uunin_asteet" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Valmistusohje</label>
+        <textarea name="valmistusohje" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Laatija</label>
+        <input type="text" name="laatija" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Lisää</button>
+    </div>
+
+</form>
+{% endblock %}

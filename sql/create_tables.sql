@@ -1,28 +1,24 @@
 CREATE TABLE kayttaja (
-id serial NOT NULL ,
+id serial PRIMARY KEY ,
 kayttaja varchar(6) NOT NULL ,
 salasana varchar(8) NOT NULL ,
-rooli varchar(20) NOT NULL ,
-PRIMARY KEY (id )
+rooli varchar(20) NOT NULL 
 );
 
 CREATE TABLE resepti (
-id serial NOT NULL ,
+id serial PRIMARY KEY ,
 reseptin_nimi varchar(50) NOT NULL ,
-annokset numeric(2) NOT NULL ,
-valmisteluaika varchar(15) NOT NULL ,
-kypsymisaika varchar(15) NOT NULL ,
-uunin_asteet numeric(3) NOT NULL ,
-kuva bytea ,
-valmistusohje varchar(1500) NOT NULL,
-laatija varchar(8) NOT NULL,
-PRIMARY KEY (id )
+annokset varchar(3),
+valmisteluaika varchar(15),
+kypsymisaika varchar(15),
+uunin_asteet varchar(7),
+valmistusohje varchar(1500),
+laatija varchar(8)
 );
 
 CREATE TABLE raaka_aine (
-id serial NOT NULL ,
-raaka_aine varchar(30) NOT NULL ,
-PRIMARY KEY (id )
+id serial PRIMARY KEY ,
+raaka_aine varchar(30) NOT NULL 
 );
 
 CREATE TABLE reseptin_aine (

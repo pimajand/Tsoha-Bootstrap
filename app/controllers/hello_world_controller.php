@@ -7,10 +7,10 @@ class HelloWorldController extends BaseController {
         echo 'Tämä on etusivu!';
     }
 
-    public static function sandbox() {
-        // Testaa koodiasi täällä
-        View::make('helloworld.html');
-    }
+    // public static function sandbox() {
+    // Testaa koodiasi täällä
+    //     View::make('helloworld.html');
+    // }
 
     public static function reseptilista() {
         View::make('suunnitelmat/reseptilista.html');
@@ -28,4 +28,11 @@ class HelloWorldController extends BaseController {
         View::make('suunnitelmat/muokkaussivu.html');
     }
 
+    public static function sandbox() {
+        $Bouillabaisse = Resepti::find(1);
+        $reseptit = Resepti::all();
+        // Kint-luokan dump-metodi tulostaa muuttujan arvon
+        Kint::dump($reseptit);
+        Kint::dump($Bouillabaisse);
+    }
 }
