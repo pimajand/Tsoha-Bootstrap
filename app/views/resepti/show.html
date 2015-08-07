@@ -1,8 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Tähän reseptin nimi</h1>
+<h1></h1>
 
-<form method="get" action="{{base_path}}/resepti/id">
+<!-- Painikkeet tähän -->
+<p>
+    <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-default">Muokkaa</a>
+</p>
+
+<!-- Tiedot tulee listana tähän -->
+<ul>
+    <li><strong>Annokset:</strong> </li>
+    <li><strong>Valmisteluaika:</strong> </li>
+    <li><strong>Kypsymisaika:</strong> </li>
+</ul>
+<!-- Valmistusaineet tulevat listana tähän -->
+    
+<!-- Valmistusohje tähän -->
+<h2>Valmistusohje</h2>
+<p>
+    
+</p>
+
+
+
+<h1><a method="get" action="{{base_path}}/resepti/{{resepti.id}}">{{resepti.reseptin_nimi}}</a></h1>
+
+
+<form method="get" action="{{base_path}}/resepti/{{resepti.id}}">
+    
+      
+    
+    
     <div class="form-group">
         <label>Reseptin Nimi</label>
         <input type="text" name="reseptin_nimi" class="form-control">
@@ -39,7 +67,7 @@
     </div>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Lisää</button>
+        <button type="submit" class="btn btn-primary">Muokkaa</button>
     </div>
 
 </form>
