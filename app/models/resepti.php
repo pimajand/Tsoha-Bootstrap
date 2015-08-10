@@ -3,7 +3,7 @@
 class Resepti extends BaseModel {
 
 // Attribuutit
-    public $id, $reseptin_nimi, $annokset, $valmisteluaika, $kypsymisaika, $uunin_asteet, $kuva, $valmistusohje, $laatija;
+    public $id, $reseptin_nimi, $annokset, $valmisteluaika, $kypsymisaika, $uunin_asteet,  $valmistusohje, $laatija;
 
 // Konstruktori
     public function __construct($attributes) {
