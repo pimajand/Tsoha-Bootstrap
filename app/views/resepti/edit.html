@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+
+{% if user_logged_in %}
+    <h1>Käyttäjän {{user_logged_in.kayttaja}} muokattavana oleva resepti</h1>
+  {% endif %}
+
 <h1>{{resepti.reseptin_nimi}}</h1>
 
 
@@ -12,36 +17,36 @@
 
     <div class="form-group">
         <label>Annokset</label>
-        <input type="text" name="annokset" class="form-control">
+        <input type="text" name="annokset" class="form-control"value="{{attributes.annokset}}">
     </div>
 
     <div class="form-group">
         <label>Valmisteluaika</label>
-        <input type="text" name="valmisteluaika" class="form-control">
+        <input type="text" name="valmisteluaika" class="form-control"value="{{attributes.valmisteluaika}}">
     </div>
 
     <div class="form-group">
         <label>Kypsymisaika</label>
-        <input type="text" name="kypsymisaika" class="form-control">
+        <input type="text" name="kypsymisaika" class="form-control"value="{{attributes.kypsymisaika}}">
     </div>
 
     <div class="form-group">
         <label>Uunin asteet</label>
-        <input type="text" name="uunin_asteet" class="form-control">
+        <input type="text" name="uunin_asteet" class="form-control"value="{{attributes.uunin_asteet}}">
     </div>
 
     <div class="form-group">
         <label>Valmistusohje</label>
-        <textarea name="valmistusohje" class="form-control"></textarea>
+        <textarea name="valmistusohje" class="form-control"value="{{attributes.valmistusohje}}"></textarea>
     </div>
 
     <div class="form-group">
         <label>Laatija</label>
-        <input type="text" name="laatija" class="form-control">
+        <input type="text" name="laatija" class="form-control"value="{{attributes.laatija}}">
     </div>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Lisää</button>
+        <button type="submit" class="btn btn-primary">Tallenna muutokset</button>
     </div>
 
 </form>
