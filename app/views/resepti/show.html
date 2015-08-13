@@ -3,10 +3,18 @@
 <h1>{{resepti.reseptin_nimi}}</h1>
 
 <ul>
+    {% if resepti.annokset != null %}
     <li><strong>Annokset: </strong>{{resepti.annokset}}</li>
+    {% endif %}
+    {% if resepti.valmisteluaika != null %}
     <li><strong>Valmisteluaika: </strong>{{resepti.valmisteluaika}}</li>
+    {% endif %}
+    {% if resepti.kypsymisaika != null %}
     <li><strong>Kypsymisaika: </strong>{{resepti.kypsymisaika}}</li>
-    <li><strong>Uunin lämpötila: </strong>{{resepti.uunin_asteet}}</li>
+    {% endif %}
+    {% if resepti.uunin_asteet != null %}
+    <li><strong>Uunin lämpötila: </strong>{{resepti.uunin_asteet}} °C</li>
+    {% endif %}
 </ul>
 
 <h3>Valmistusaineet:</h3>

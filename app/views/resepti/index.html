@@ -4,6 +4,7 @@
 
 <p>
     <a href="{{base_path}}/resepti/new" class="btn btn-success">Lisää resepti</a> 
+    <a href="{{base_path}}/user/login" class="btn btn-success">Kirjaudu sisään</a> 
 </p>
 
 <table class="table table-striped table-bordered">
@@ -19,11 +20,15 @@
         {% for resepti in reseptit %}
         <tr>
             <td><a href="{{base_path}}/resepti/{{resepti.id}}">{{resepti.reseptin_nimi}}</a></td>
-            <th><a class="btn btn-default btn-sm" href="{{base_path}}/resepti/{{resepti.id}}/edit">Muokkaa</a></th>
-            <th><a class="btn btn-default btn-sm" href="{{base_path}}/resepti/{{resepti.id}}/edit">Poista</a></th>
-        </tr>
+            <th><a class="btn btn-default" href="{{base_path}}/resepti/{{resepti.id}}/edit">Muokkaa</a></th>
 
-        {% endfor %}
-    </tbody>
+    <form method="post" action="{{base_path}}/resepti/{{resepti.id}}/destroy" style="display: inline-block;">
+        <th><button type="submit" class="btn btn-danger">Poista</button></th>
+    </form> 
+
+</tr>
+
+{% endfor %}
+</tbody>
 </table>
 {% endblock %}

@@ -13,7 +13,7 @@ valmisteluaika varchar(15),
 kypsymisaika varchar(15),
 uunin_asteet varchar(7),
 valmistusohje varchar(1500),
-laatija varchar(8)
+laatija varchar(6)
 );
 
 CREATE TABLE raaka_aine (

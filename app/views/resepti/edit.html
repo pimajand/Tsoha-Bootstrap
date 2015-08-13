@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Lisää resepti</h1>
+<h1>{{resepti.reseptin_nimi}}</h1>
 
-<form method="post" action="{{base_path}}/resepti">
+
+
+<form method="post" action="{{base_path}}/resepti/{{attributes.id}}/edit">
     <div class="form-group">
         <label>Reseptin Nimi</label>
         <input type="text" name="reseptin_nimi" class="form-control"value="{{attributes.reseptin_nimi}}">
