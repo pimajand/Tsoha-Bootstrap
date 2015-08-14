@@ -88,6 +88,7 @@ class Resepti extends BaseModel {
 
     public function uunin_asteet() {
         $errors = array();
+
         if ((strlen($this->uunin_asteet) < 2) || (strlen($this->uunin_asteet) > 3)) {
             $errors[] = 'Uunin lämpötilan tulee olla 2-3 merkkiä pitkä!';
         }

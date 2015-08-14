@@ -23,3 +23,17 @@ http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/muokkaussivu
 ## tietokantayhteys toimii ja taulut on luotu
 
 http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/tietokantayhteys
+
+## All, save ja find toteutettu, mutta show.html ei toimi (reseptin katselu)
+
+http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/resepti
+
+## Kontrollerin metodit
+
+https://github.com/pimajand/Tsoha-Bootstrap/blob/master/app/controllers/reseptit_controller.php
+
+
+
+
+
+

@@ -44,13 +44,17 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!-- Sovelluksen nimi -->
-                    <a class="navbar-brand" href="{{base_path}}">Reseptihakemisto</a>
+                    <a class="navbar-brand" href="{{base_path}}/resepti">Reseptihakemisto</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navigation">
                     <ul class="nav navbar-nav">
                         <!-- Navigaation linkit -->
-                        <li><a href="{{base_path}}">Etusivu</a></li>
+                        <li><a href="{{base_path}}/resepti">Etusivu</a></li>
+                        <li><a href="{{base_path}}/user/login">Kirjaudu sisään</a></li> 
+                        {% if user_logged_in %}
+                        <li> Käyttäjä {{user_logged_in.kayttaja}} on kirjautunut järjestelmään </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
