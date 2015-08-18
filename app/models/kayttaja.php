@@ -16,6 +16,7 @@ class Kayttaja extends BaseModel {
         $row = $query->fetch();
         if ($row) {
             $kayttaja = new Kayttaja(array(
+                'id' => $row['id'],
                 'kayttaja' => $row['kayttaja'],
                 'salasana' => $row['salasana']));
             return $kayttaja;
@@ -25,9 +26,9 @@ class Kayttaja extends BaseModel {
         }
     }
 
-    public static function find($id, $kayttaja) {
+    public static function find($id) {
         $query = DB::connection()->prepare('SELECT * FROM Kayttaja WHERE id = :id LIMIT 1');
-        $query->execute(array('id' => $id, 'kayttaja' => $kayttaja));
+        $query->execute(array('id' => $id));
         $row = $query->fetch();
 
         if ($row) {
