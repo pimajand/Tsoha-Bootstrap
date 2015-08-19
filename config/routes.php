@@ -49,3 +49,30 @@ $routes->post('/user/login', function() {
 $routes->post('/user/logout', function(){
   UserController::logout();
 });
+
+$routes->get('/raaka_aine', function(){
+  Raaka_aineController::index();
+});
+$routes->get('/raaka_aine/new', function(){
+  Raaka_aineController::create();
+});
+
+$routes->get('/raaka_aine/:id', function($id){
+  Raaka_aineController::show($id);
+});
+
+$routes->post('/raaka_aine', function(){
+  Raaka_aineController::store();
+});
+
+$routes->get('/raaka_aine/:id/edit', function($id){
+  Raaka_aineController::edit($id);
+});
+
+$routes->post('/raaka_aine/:id/edit', function($id){
+  Raaka_aineController::update($id);
+});
+
+$routes->post('/raaka_aine/:id/destroy', function($id){
+  Raaka_aineController::destroy($id);
+});
