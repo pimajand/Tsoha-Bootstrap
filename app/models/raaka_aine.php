@@ -4,9 +4,9 @@ class Raaka_aine extends BaseModel {
 
     public $id, $raaka_aine;
 
-    public function _construct($raaka_aine) {
+    public function __construct($attributes) {
         parent::__construct($attributes);
-        $this->validators = array('raaka_aine');
+        $this->validators = array('raaka_aineen_nimi');
     }
 
     public static function all() {
@@ -58,10 +58,10 @@ class Raaka_aine extends BaseModel {
     public function update() {
         $query = DB::connection()->prepare('UPDATE Raaka_aine SET raaka_aine = :raaka_aine WHERE id = :id');
         $query->execute(array('id' => $this->id, 'raaka_aine' => $this->raaka_aine));
-        $row = $query->fetch();
+//        $row = $query->fetch();
 //        Kint::trace();
 //        Kint::dump($row);
-        $this->id = $row['id'];
+//        $this->id = $row['id'];
     }
 
     public function destroy() {

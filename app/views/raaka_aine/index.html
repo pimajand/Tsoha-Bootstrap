@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Raaka-aineet</h1>
+
+<p>
+    <a href="{{base_path}}/raaka_aine/new" class="btn btn-success">Lisää raaka-aine</a> 
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Raaka-aineen nimi</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for raaka_aine in raaka_aineet %}
+        <tr>
+            <td><a href="{{base_path}}/raaka-aine/{{raaka_aine.id}}">{{raaka_aine.raaka_aine}}</a></td>
+            <th><a class="btn btn-default" href="{{base_path}}/raaka_aine/{{raaka_aine.id}}/edit">Muokkaa</a></th>
+
+    <form method="post" action="{{base_path}}/raaka_aine/{{raaka_aine.id}}/destroy" style="display: inline-block;">
+        <th><button type="submit" class="btn btn-danger">Poista</button></th>
+    </form> 
+
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

@@ -24,7 +24,6 @@ raaka_aine varchar(30) NOT NULL
 CREATE TABLE reseptin_aine (
 raaka_aine_id integer NOT NULL ,
 resepti_id integer NOT NULL ,
-maara varchar(20) NOT NULL ,
 PRIMARY KEY (raaka_aine_id, resepti_id),
 FOREIGN KEY (resepti_id) REFERENCES resepti(id),
 FOREIGN KEY (raaka_aine_id) REFERENCES raaka_aine(id)

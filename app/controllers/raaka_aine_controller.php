@@ -44,10 +44,10 @@ class Raaka_aineController extends BaseController {
         $raaka_aine = new Raaka_aine($attributes);
         $errors = $raaka_aine->errors();
         if (count($errors) > 0) {
-            View::make('raaka_aine/edit.html', array('errors' => $errors, 'attributes' => $attributes));
+            View::make('raaka_aine/edit.html', array('errors' => $errors, 'attributes' => $raaka_aine));
         } else {
             $raaka_aine->update();
-            Redirect::to('/raaka_aine/' . $raaka_aine->id, array('message' => 'Raaka-ainetta on muokattu onnistuneesti!'));
+            Redirect::to('/raaka_aine', array('message' => 'Raaka-ainetta on muokattu onnistuneesti!'));
         }
     }
 

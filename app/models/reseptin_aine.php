@@ -2,7 +2,7 @@
 
 class Reseptin_aine extends BaseModel {
 
-    public $raaka_aine_id, $resepti_id, $maara;
+    public $raaka_aine_id, $resepti_id;
 
     public function _construct($maara) {
         parent::__construct($attributes);

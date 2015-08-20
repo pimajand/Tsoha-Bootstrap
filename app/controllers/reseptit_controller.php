@@ -73,13 +73,12 @@ class ReseptiController extends BaseController {
         $resepti = new Resepti($attributes);
         $errors = $resepti->errors();
 
-        if (count($errors) > 0) {
-            View::make('resepti/edit.html', array('errors' => $errors, 'attributes' => $attributes));
-        } else {
-// Kutsutaan alustetun olion update-metodia, joka päivittää pelin tiedot tietokannassa
+        if (count($errors) == 0) {
             $resepti->update();
 
-            Redirect::to('/resepti/' . $resepti->id, array('message' => 'Reseptiä on muokattu onnistuneesti!'));
+            Redirect::to('/resepti' , array('message' => 'Reseptiä on muokattu onnistuneesti!'));
+        } else {
+             View::make('resepti/edit.html', array('errors' => $errors, 'attributes' => $attributes));
         }
     }
 

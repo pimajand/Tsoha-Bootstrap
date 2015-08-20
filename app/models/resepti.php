@@ -95,10 +95,10 @@ class Resepti extends BaseModel {
         $query = DB::connection()->prepare('UPDATE Resepti SET reseptin_nimi = :reseptin_nimi, annokset = :annokset, valmisteluaika = :valmisteluaika, kypsymisaika = :kypsymisaika, uunin_asteet = :uunin_asteet, valmistusohje = :valmistusohje, laatija = :laatija
 WHERE id = :id');
         $query->execute(array('id' => $this->id, 'reseptin_nimi' => $this->reseptin_nimi, 'annokset' => $this->annokset, 'valmisteluaika' => $this->valmisteluaika, 'kypsymisaika' => $this->kypsymisaika, 'uunin_asteet' => $this->uunin_asteet, 'valmistusohje' => $this->valmistusohje, 'laatija' => $this->laatija));
-        $row = $query->fetch();
+//        $row = $query->fetch();
 //        Kint::trace();
 //        Kint::dump($row);
-        $this->id = $row['id'];
+//        $this->id = $row['id'];
     }
 
     public function destroy() {
