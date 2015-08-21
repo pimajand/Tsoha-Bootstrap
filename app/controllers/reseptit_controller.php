@@ -18,16 +18,24 @@ class ReseptiController extends BaseController {
     public static function store() {
 // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
         $params = $_POST;
+        $raaka_aineet = $params['raaka_aineet'];
 // Alustetaan uusi Resepti-luokan olion käyttäjän syöttämillä arvoilla
-        $resepti = new Resepti(array(
+        $attributes = array(
             'reseptin_nimi' => $params['reseptin_nimi'],
             'annokset' => $params['annokset'],
             'valmisteluaika' => $params['valmisteluaika'],
             'kypsymisaika' => $params['kypsymisaika'],
             'uunin_asteet' => $params['uunin_asteet'],
+            'raaka_aineet' => array(),
             'valmistusohje' => $params['valmistusohje'],
             'laatija' => $params['laatija']
-        ));
+        );
+        
+        foreach ($raaka_aineet as $raaka_aine) {
+            $attributes['raaka_aineet'][] = $raaka_aine;
+        }
+        
+        $resepti = new Resepti($attributes);
 
         $errors = $resepti->errors();
         if (count($errors) == 0) {
@@ -76,9 +84,9 @@ class ReseptiController extends BaseController {
         if (count($errors) == 0) {
             $resepti->update();
 
-            Redirect::to('/resepti' , array('message' => 'Reseptiä on muokattu onnistuneesti!'));
+            Redirect::to('/resepti', array('message' => 'Reseptiä on muokattu onnistuneesti!'));
         } else {
-             View::make('resepti/edit.html', array('errors' => $errors, 'attributes' => $attributes));
+            View::make('resepti/edit.html', array('errors' => $errors, 'attributes' => $attributes));
         }
     }
 

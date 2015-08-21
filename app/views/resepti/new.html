@@ -29,6 +29,15 @@
     </div>
 
     <div class="form-group">
+        <label>Valmistusaineet</label>
+        <select class="form-control" name="raaka_aineet[]" multiple="">
+            {% for raaka_aine in raaka_aineet %}
+            <option value="{{raaka_aine.id}}">{{raaka_aine.raaka_aine}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
         <label>Valmistusohje</label>
         <textarea name="valmistusohje" class="form-control"></textarea>
     </div>

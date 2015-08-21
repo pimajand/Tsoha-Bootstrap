@@ -56,6 +56,11 @@ class Resepti extends BaseModel {
 //        Kint::trace();
 //        Kint::dump($row);
         $this->id = $row['id'];
+
+        $query = DB::connection()->prepare('INSERT INTO Reseptin_aine (resepti_id, raaka_aine_id) VALUES(:Resepti.id, :Raaka_aine.id) RETURNING raaka_aine');
+        $query->execute(array('resepti_id' => $this->resepti_id, 'raaka_aine_id' => $this->raaka_aine_id));
+        $row = $query->fetch();
+        $this->raaka_aine = $row['raaka_aine'];
     }
 
     public function reseptin_nimi() {
