@@ -18,7 +18,7 @@ class ReseptiController extends BaseController {
     public static function store() {
 // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
         $params = $_POST;
-        $raaka_aineet = $params['raaka_aineet'];
+
 // Alustetaan uusi Resepti-luokan olion käyttäjän syöttämillä arvoilla
         $attributes = array(
             'reseptin_nimi' => $params['reseptin_nimi'],
@@ -26,37 +26,28 @@ class ReseptiController extends BaseController {
             'valmisteluaika' => $params['valmisteluaika'],
             'kypsymisaika' => $params['kypsymisaika'],
             'uunin_asteet' => $params['uunin_asteet'],
-            'raaka_aineet' => array(),
             'valmistusohje' => $params['valmistusohje'],
             'laatija' => $params['laatija']
         );
-        
-        foreach ($raaka_aineet as $raaka_aine) {
-            $attributes['raaka_aineet'][] = $raaka_aine;
-        }
-        
         $resepti = new Resepti($attributes);
-
         $errors = $resepti->errors();
         if (count($errors) == 0) {
             // Resepti on validi, hyvä homma!
 // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
             $resepti->save();
-
 // Ohjataan käyttäjä lisäyksen jälkeen reseptin sivulle
-            Redirect::to('/resepti/' . $resepti->id, array('message' => 'Resepti on lisätty'));
+            Redirect::to('/resepti', array('message' => 'Resepti on lisätty'));
         } else {
             View::make('resepti/new.html', array('errors' => $errors, 'attributes' => $resepti));
         }
     }
 
 //    }
-
     public static function create() {
         View::make('resepti/new.html');
     }
 
-// Reseptin muokkaaminen (lomakkeen esittäminen)
+    // Reseptin muokkaaminen (lomakkeen esittäminen)
     public static function edit($id) {
         $resepti = Resepti::find($id);
         View::make('resepti/edit.html', array('attributes' => $resepti));
@@ -65,7 +56,6 @@ class ReseptiController extends BaseController {
 // Reseptin muokkaaminen (lomakkeen käsittely)
     public static function update($id) {
         $params = $_POST;
-
         $attributes = array(
             'id' => $id,
             'reseptin_nimi' => $params['reseptin_nimi'],
@@ -76,14 +66,11 @@ class ReseptiController extends BaseController {
             'valmistusohje' => $params['valmistusohje'],
             'laatija' => $params['laatija']
         );
-
 // Alustetaan Resepti-olio käyttäjän syöttämillä tiedoilla
         $resepti = new Resepti($attributes);
         $errors = $resepti->errors();
-
         if (count($errors) == 0) {
             $resepti->update();
-
             Redirect::to('/resepti', array('message' => 'Reseptiä on muokattu onnistuneesti!'));
         } else {
             View::make('resepti/edit.html', array('errors' => $errors, 'attributes' => $attributes));

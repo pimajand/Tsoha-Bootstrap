@@ -52,9 +52,7 @@
                         <!-- Navigaation linkit -->
                         <li><a href="{{base_path}}/resepti">Etusivu</a></li>
 
-                        {% if user_logged_in %}
-                        <li> Käyttäjä {{user_logged_in.kayttaja}} on kirjautunut järjestelmään </li>
-                        {% endif %}
+                        <li><a href="{{base_path}}/raaka_aine">Raaka-aineet</a></li>
 
                         {% if user_logged_in %}
                         <form class="navbar-form navbar-right" method="post" action="{{base_path}}/user/logout">
@@ -63,8 +61,8 @@
                         {% else %}
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{{base_path}}/user/login">Kirjaudu sisään</a></li>
+                            {% endif %}
                         </ul>
-                        {% endif %}
                     </ul>
                 </div>
             </div>

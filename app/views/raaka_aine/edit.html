@@ -2,10 +2,9 @@
 {% block content %}
 
 {% if user_logged_in %}
-<h1>Käyttäjän {{user_logged_in.kayttaja}} muokattavana oleva raaka_aine</h1>
+<h3>Käyttäjän {{user_logged_in.kayttaja}} muokattavana oleva raaka_aine</h3>
 {% endif %}
 
-<h1>{{raaka_aine.raaka_aine}}</h1>
 
 
 
@@ -17,9 +16,9 @@
 
 
     <div class="form-group">
-        
+
         <form method="post" action="{{base_path}}/raaka_aine/{{attributes.id}}/edit" style="display: inline-block;">
-            <th><button type="submit" class="btn btn-danger">Muokkaa</button></th>
+            <th><button type="submit" class="btn btn-danger">Tallenna</button></th>
 
     </div>
 </form>

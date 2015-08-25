@@ -20,7 +20,7 @@ class Raaka_aineController extends BaseController {
         $errors = $raaka_aine->errors();
         if (count($errors) == 0) {
             $raaka_aine->save();
-            Redirect::to('/raaka_aine/' . $raaka_aine->id, array('message' => 'Raaka-aine on lisätty'));
+            Redirect::to('/raaka_aine', array('message' => 'Raaka-aine on lisätty'));
         } else {
             View::make('raaka_aine/new.html', array('errors' => $errors, 'attributes' => $raaka_aine));
         }

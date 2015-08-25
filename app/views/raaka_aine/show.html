@@ -1,23 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>{{raaka_aine.raaka_aine}}</h1>
+<h1>Raaka_aine: {{raaka_aine.raaka_aine}}</h1>
 
 
-
-<h3>Raaka-aine:</h3>
-
-
-
-
-
-<p>Raaka_aine: {{raaka_aine.raaka_aine}}</p> 
 
 
 <div class="form-group">
-    <th><a class="btn btn-default" href="{{base_path}}/raaka_aine/{{raaka_aine.id}}/edit"></a></th>
+
+    <th><a class="btn btn-default" href="{{base_path}}/raaka_aine">Takaisin Raaka-aineiden listaan</a></th>
+
     <form method="post" action="{{base_path}}/raaka_aine/{{raaka_aine.id}}/destroy" style="display: inline-block;">
         <th><button type="submit" class="btn btn-danger">Poista</button></th>
-        </for
+
 </div>
 
 </form>

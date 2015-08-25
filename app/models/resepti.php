@@ -6,7 +6,9 @@ class Resepti extends BaseModel {
 
     public function __construct($attributes) {
         parent::__construct($attributes);
-        $this->validators = array('reseptin_nimi', 'uunin_asteet', 'laatija');
+        $this->validators = array('reseptin_nimi'
+//            , 'uunin_asteet', 'laatija'
+            );
     }
 
     public static function all() {
@@ -50,17 +52,18 @@ class Resepti extends BaseModel {
     }
 
     public function save() {
+        // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
         $query = DB::connection()->prepare('INSERT INTO Resepti (reseptin_nimi, annokset, valmisteluaika, kypsymisaika, uunin_asteet, valmistusohje, laatija) VALUES (:reseptin_nimi, :annokset, :valmisteluaika, :kypsymisaika, :uunin_asteet, :valmistusohje, :laatija) RETURNING id');
+        // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
         $query->execute(array('reseptin_nimi' => $this->reseptin_nimi, 'annokset' => $this->annokset, 'valmisteluaika' => $this->valmisteluaika, 'kypsymisaika' => $this->kypsymisaika, 'uunin_asteet' => $this->uunin_asteet, 'valmistusohje' => $this->valmistusohje, 'laatija' => $this->laatija));
+        // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
         $row = $query->fetch();
+        Kint::trace();
+        Kint::dump($row);
+        // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
 //        Kint::trace();
 //        Kint::dump($row);
         $this->id = $row['id'];
-
-        $query = DB::connection()->prepare('INSERT INTO Reseptin_aine (resepti_id, raaka_aine_id) VALUES(:Resepti.id, :Raaka_aine.id) RETURNING raaka_aine');
-        $query->execute(array('resepti_id' => $this->resepti_id, 'raaka_aine_id' => $this->raaka_aine_id));
-        $row = $query->fetch();
-        $this->raaka_aine = $row['raaka_aine'];
     }
 
     public function reseptin_nimi() {
@@ -74,27 +77,27 @@ class Resepti extends BaseModel {
         return $errors;
     }
 
-    public function uunin_asteet() {
-        $errors = array();
-        if ((strlen($this->uunin_asteet) < 2) || (strlen($this->uunin_asteet) > 3)) {
-            $errors[] = 'Uunin lämpötilan tulee olla 2-3 merkkiä pitkä!';
-        }
-        if (!is_numeric($this->uunin_asteet)) {
-            $errors[] = 'Uunin lämpötilan tulee olla numeerinen!';
-        }
-        return $errors;
-    }
-
-    public function laatija() {
-        $errors = array();
-        if ($this->laatija == '' || $this->laatija == null) {
-            $errors[] = 'Käyttäjätunnus ei saa olla tyhjä!';
-        }
-        if (strlen($this->laatija) != 6) {
-            $errors[] = 'Reseptin laatijan käyttäjätunnus on 6 merkkiä!';
-        }
-        return $errors;
-    }
+//    public function uunin_asteet() {
+//        $errors = array();
+//        if ((strlen($this->uunin_asteet) < 2) || (strlen($this->uunin_asteet) > 3)) {
+//            $errors[] = 'Uunin lämpötilan tulee olla 2-3 merkkiä pitkä!';
+//        }
+//        if (!is_numeric($this->uunin_asteet)) {
+//            $errors[] = 'Uunin lämpötilan tulee olla numeerinen!';
+//        }
+//        return $errors;
+//    }
+//
+//    public function laatija() {
+//        $errors = array();
+//        if ($this->laatija == '' || $this->laatija == null) {
+//            $errors[] = 'Käyttäjätunnus ei saa olla tyhjä!';
+//        }
+//        if (strlen($this->laatija) != 6) {
+//            $errors[] = 'Reseptin laatijan käyttäjätunnus on 6 merkkiä!';
+//        }
+//        return $errors;
+//    }
 
     public function update() {
         $query = DB::connection()->prepare('UPDATE Resepti SET reseptin_nimi = :reseptin_nimi, annokset = :annokset, valmisteluaika = :valmisteluaika, kypsymisaika = :kypsymisaika, uunin_asteet = :uunin_asteet, valmistusohje = :valmistusohje, laatija = :laatija
