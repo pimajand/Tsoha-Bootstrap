@@ -53,7 +53,7 @@ $routes->post('/user/logout', function(){
 $routes->get('/raaka_aine', function(){
   Raaka_aineController::index();
 });
-$routes->get('/raaka_aine/new', function(){
+$routes->get('/raaka_aine/new', 'check_logged_in', function(){
   Raaka_aineController::create();
 });
 
@@ -61,18 +61,18 @@ $routes->get('/raaka_aine/:id', function($id){
   Raaka_aineController::show($id);
 });
 
-$routes->post('/raaka_aine', function(){
+$routes->post('/raaka_aine', 'check_logged_in', function(){
   Raaka_aineController::store();
 });
 
-$routes->get('/raaka_aine/:id/edit', function($id){
+$routes->get('/raaka_aine/:id/edit', 'check_logged_in', function($id){
   Raaka_aineController::edit($id);
 });
 
-$routes->post('/raaka_aine/:id/edit', function($id){
+$routes->post('/raaka_aine/:id/edit', 'check_logged_in', function($id){
   Raaka_aineController::update($id);
 });
 
-$routes->post('/raaka_aine/:id/destroy', function($id){
+$routes->post('/raaka_aine/:id/destroy', 'check_logged_in', function($id){
   Raaka_aineController::destroy($id);
 });
