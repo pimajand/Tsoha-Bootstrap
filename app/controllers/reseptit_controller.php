@@ -18,7 +18,7 @@ class ReseptiController extends BaseController {
     public static function store() {
 // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
         $params = $_POST;
-
+//        $raaka_aineet = $params['raaka_aineet'];
 // Alustetaan uusi Resepti-luokan olion käyttäjän syöttämillä arvoilla
         $attributes = array(
             'reseptin_nimi' => $params['reseptin_nimi'],
@@ -26,9 +26,17 @@ class ReseptiController extends BaseController {
             'valmisteluaika' => $params['valmisteluaika'],
             'kypsymisaika' => $params['kypsymisaika'],
             'uunin_asteet' => $params['uunin_asteet'],
+//            'raaka_aineet' => array(),
             'valmistusohje' => $params['valmistusohje'],
             'laatija' => $params['laatija']
         );
+
+//        foreach ($raaka_aineet as $raaka_aine) {
+//            $attributes['raaka_aineet'][] = $raaka_aine;
+//        }
+
+
+
         $resepti = new Resepti($attributes);
         $errors = $resepti->errors();
         if (count($errors) == 0) {
@@ -44,7 +52,8 @@ class ReseptiController extends BaseController {
 
 //    }
     public static function create() {
-        View::make('resepti/new.html');
+        $raaka_aineet = Raaka_aine::all();
+        View::make('resepti/new.html', array('raaka_aineet' => $raaka_aineet));
     }
 
     // Reseptin muokkaaminen (lomakkeen esittäminen)
@@ -63,6 +72,7 @@ class ReseptiController extends BaseController {
             'valmisteluaika' => $params['valmisteluaika'],
             'kypsymisaika' => $params['kypsymisaika'],
             'uunin_asteet' => $params['uunin_asteet'],
+//            'raaka_aineet' => $params['raaka_aineet'],
             'valmistusohje' => $params['valmistusohje'],
             'laatija' => $params['laatija']
         );

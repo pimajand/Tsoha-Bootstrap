@@ -6,9 +6,7 @@ class Resepti extends BaseModel {
 
     public function __construct($attributes) {
         parent::__construct($attributes);
-        $this->validators = array('reseptin_nimi'
-//            , 'uunin_asteet', 'laatija'
-            );
+        $this->validators = array('reseptin_nimi');
     }
 
     public static function all() {
@@ -76,28 +74,6 @@ class Resepti extends BaseModel {
         }
         return $errors;
     }
-
-//    public function uunin_asteet() {
-//        $errors = array();
-//        if ((strlen($this->uunin_asteet) < 2) || (strlen($this->uunin_asteet) > 3)) {
-//            $errors[] = 'Uunin lämpötilan tulee olla 2-3 merkkiä pitkä!';
-//        }
-//        if (!is_numeric($this->uunin_asteet)) {
-//            $errors[] = 'Uunin lämpötilan tulee olla numeerinen!';
-//        }
-//        return $errors;
-//    }
-//
-//    public function laatija() {
-//        $errors = array();
-//        if ($this->laatija == '' || $this->laatija == null) {
-//            $errors[] = 'Käyttäjätunnus ei saa olla tyhjä!';
-//        }
-//        if (strlen($this->laatija) != 6) {
-//            $errors[] = 'Reseptin laatijan käyttäjätunnus on 6 merkkiä!';
-//        }
-//        return $errors;
-//    }
 
     public function update() {
         $query = DB::connection()->prepare('UPDATE Resepti SET reseptin_nimi = :reseptin_nimi, annokset = :annokset, valmisteluaika = :valmisteluaika, kypsymisaika = :kypsymisaika, uunin_asteet = :uunin_asteet, valmistusohje = :valmistusohje, laatija = :laatija
