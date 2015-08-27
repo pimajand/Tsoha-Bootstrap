@@ -13,13 +13,6 @@ Resepteistä voi lisäksi pyytää aakkosjärjestyksen mukaisen listauksen. Sama
 
 Järjestelmä toteutetaan PHP-kielellä PostgreSQL-toimintaympäristössä. Web-sovelluksen alustajärjestelmän tulee tukea PHP-ohjelmointikieltä.
 
-## Linkit käyttöliittymän suunnitelmien sivuille
-
-http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/kirjautumissivu
-http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/reseptilista
-http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/resepti
-http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/muokkaussivu
-
 ## tietokantayhteys toimii ja taulut on luotu
 
 http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/tietokantayhteys
