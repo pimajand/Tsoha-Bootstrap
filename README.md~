@@ -24,7 +24,7 @@ http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/muokkaussivu
 
 http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/tietokantayhteys
 
-## All, save ja find toteutettu, mutta show.html ei toimi (reseptin katselu)
+## All, save, find, update, destroy ja validaattorit toteutettu
 
 http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/resepti
 
@@ -32,7 +32,14 @@ http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/resepti
 
 https://github.com/pimajand/Tsoha-Bootstrap/blob/master/app/controllers/reseptit_controller.php
 
+## Käyttäjän kirjautuminen
 
+http://pimajand.users.cs.helsinki.fi/Reseptihakemisto/user/login
+
+## Käyttäjätunnus ja salasana
+
+Käyttäjä = testi1
+Salasana = testi1
 
 
 
